@@ -35,3 +35,9 @@ jobs:
 
       - name: 📤 Push da imagem
         run: docker push $IMAGE_NAME
+
+      - name: 🏷️ Tag latest
+        run: docker tag $IMAGE_NAME ${{ secrets.DOCKERHUB_USERNAME }}/java-api:latest
+
+      - name: 📤 Push latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/java-api:latest
